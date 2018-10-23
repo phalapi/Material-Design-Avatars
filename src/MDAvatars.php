@@ -353,7 +353,8 @@ class MDAvatars
             array(55, 71, 79),
             array(38, 50, 56)
         );
-        $BackgroundColorIndex = mt_rand(0, count($MaterialDesignColor) - 1);
+        //$BackgroundColorIndex = mt_rand(0, count($MaterialDesignColor) - 1);
+        $BackgroundColorIndex = crc32($this->Char) % count($MaterialDesignColor); // 非随机
         $BackgroundColor      = imagecolorallocate($this->Avatar,
             $MaterialDesignColor[$BackgroundColorIndex][0],
             $MaterialDesignColor[$BackgroundColorIndex][1],
